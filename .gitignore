@@ -1,0 +1,43 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Logs
+*.log
+
+# Fichiers HTML générés
+html/*.html
+html/images/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vscode-test/
+
+# Backup files
+*.bak
+*.tmp
+*.orig
+
+# Node.js (si utilisé ultérieurement)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (si utilisé ultérieurement)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# Fichiers système
+Thumbs.db
+desktop.ini
