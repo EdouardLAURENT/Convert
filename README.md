@@ -22,7 +22,7 @@
 ## 🚀 Utilisation
 
 1. Ajoutez vos fichiers Markdown dans `markdown/NOM_COURS/`
-2. Ajoutez vos ressources (images, etc.) dans `static/NOM_COURS/`
+2. Ajoutez vos ressources (images, etc.) dans `markdown/NOM_COURS/images/`
 3. Committez et pushez → La conversion se fait automatiquement via GitHub Actions
 4. Les pages sont déployées sur GitHub Pages
 
@@ -38,4 +38,4 @@
 
 ---
 
-_Généré automatiquement par Convert • 21/10/2025 12:53_
+_Généré automatiquement par Convert • 21/10/2025 14:00_

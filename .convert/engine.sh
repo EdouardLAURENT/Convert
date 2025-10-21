@@ -72,16 +72,17 @@ convert_file() {
     fi
 }
 
-# Copier les ressources statiques d'un répertoire
+# Copier les ressources (images, etc.) d'un répertoire
 copy_static_resources() {
     local dir_name="$1"
     local target_dir="$2"
-    local static_dir="$PROJECT_ROOT/static/$dir_name"
+    local source_images_dir="$INPUT_DIR/$dir_name/images"
+    local target_images_dir="$target_dir/images"
     
-    if [ -d "$static_dir" ]; then
-        mkdir -p "$target_dir"
-        cp -r "$static_dir"/* "$target_dir/" 2>/dev/null && \
-            echo "✓ Ressources statiques copiées depuis static/$dir_name/"
+    if [ -d "$source_images_dir" ]; then
+        mkdir -p "$target_images_dir"
+        cp -r "$source_images_dir"/* "$target_images_dir/" 2>/dev/null && \
+            echo "✓ Images copiées depuis markdown/$dir_name/images/"
     fi
 }
 
@@ -158,10 +159,11 @@ convert_all() {
             fi
         done
         
-        # Copier les ressources statiques de la racine (si elles existent)
-        if [ -d "$PROJECT_ROOT/static" ] && [ "$(ls -A "$PROJECT_ROOT/static" 2>/dev/null)" ]; then
-            cp -r "$PROJECT_ROOT/static"/* "$OUTPUT_DIR/" 2>/dev/null && \
-                echo "✓ Ressources statiques copiées depuis static/"
+        # Copier les images de la racine si elles existent
+        if [ -d "$INPUT_DIR/images" ]; then
+            mkdir -p "$OUTPUT_DIR/images"
+            cp -r "$INPUT_DIR/images"/* "$OUTPUT_DIR/images/" 2>/dev/null && \
+                echo "✓ Images copiées depuis markdown/images/"
         fi
     fi
     
