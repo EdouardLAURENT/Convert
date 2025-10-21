@@ -49,8 +49,9 @@ jobs:
         run: |
           chmod +x .convert/engine.sh
           set -x  # Active le mode debug
-          ./.convert/engine.sh 2>&1 || {
+          bash -x ./.convert/engine.sh 2>&1 || {
             echo "❌ Conversion failed!"
+            echo "Exit code: $?"
             echo "Content of markdown/:"
             ls -la markdown/
             echo "Content of markdown/snake-js/:"
