@@ -204,17 +204,17 @@
       border-bottom: 1px solid var(--border-color);
     }
 
-    header * {
-      position: relative;
-      color: var(--text-primary);
-    }
-
     header h1 {
       color: var(--bleu-epitech) !important;
     }
 
     [data-theme="dark"] header h1 {
       color: var(--vert-epitech) !important;
+    }
+
+    header *:not(h1) {
+      position: relative;
+      color: var(--text-primary);
     }
 
     /* Logo Epitech dans le header (SVG inline) */
