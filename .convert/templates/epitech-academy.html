@@ -1366,20 +1366,31 @@ $endif$
 <script>
   // Convertir les blocs de code Pandoc pour Prism.js
   document.addEventListener('DOMContentLoaded', function() {
-    // Pandoc avec --no-highlight génère: <pre class="LANG"><code>
+    // Pandoc génère: <div class="sourceCode"><pre class="sourceCode LANG"><code class="sourceCode LANG">
     // Prism.js attend: <pre><code class="language-LANG">
     
-    document.querySelectorAll('pre[class]').forEach(function(pre) {
+    document.querySelectorAll('pre.sourceCode').forEach(function(pre) {
       const code = pre.querySelector('code');
-      if (code && pre.className && !code.className.startsWith('language-')) {
-        // Le langage est dans la classe du <pre>
-        const lang = pre.className.trim();
+      if (code) {
+        // Extraire le langage des classes
+        const classes = pre.className.split(' ');
+        let lang = null;
         
-        if (lang && lang !== 'sourceCode') {
+        for (let cls of classes) {
+          if (cls !== 'sourceCode' && cls !== '') {
+            lang = cls;
+            break;
+          }
+        }
+        
+        if (lang) {
           // Appliquer la classe Prism au <code>
           code.className = 'language-' + lang;
-          // Retirer la classe du <pre>
+          // Nettoyer les classes du <pre>
           pre.className = '';
+          
+          // Supprimer les spans Pandoc (numéros de ligne, etc.)
+          code.innerHTML = code.textContent;
           
           // Appliquer Prism
           Prism.highlightElement(code);
