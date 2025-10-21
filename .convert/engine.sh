@@ -265,9 +265,9 @@ main() {
     else
         # Mode conversion complète
         convert_all
-        # Générer le README avec les liens
-        echo ""
-        generate_readme
+        # Générer le README avec les liens (décommenter si souhaité)
+        # echo ""
+        # generate_readme
     fi
     
     echo ""

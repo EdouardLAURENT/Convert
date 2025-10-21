@@ -9,13 +9,9 @@
 
 ## 📚 Cours disponibles
 
-### 📁 snake-js
+### 📁 exemple
 
-- 🔗 [Snake-js](https://EdouardLAURENT.github.io/Convert/snake-js/Snake-js.html)
-
-### 📁 test-cours
-
-- 🔗 [index](https://EdouardLAURENT.github.io/Convert/test-cours/index.html)
+- 🔗 [index](https://EdouardLAURENT.github.io/Convert/exemple/index.html)
 
 ---
 
@@ -38,4 +34,4 @@
 
 ---
 
-_Généré automatiquement par Convert • 21/10/2025 14:18_
+_Généré automatiquement par Convert • 21/10/2025 14:25_
