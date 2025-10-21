@@ -1,6 +1,6 @@
-# Exemple de Cours
+# Exemple de workshop
 
-Bienvenue dans ce cours d'exemple !
+Bienvenue dans ce workshop d'exemple !
 
 ## Introduction
 
