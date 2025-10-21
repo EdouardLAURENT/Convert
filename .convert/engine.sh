@@ -196,7 +196,7 @@ generate_readme() {
                 if [ -f "$html_file" ]; then
                     local filename=$(basename "$html_file")
                     local title="${filename%.html}"
-                    local url="$GITHUB_PAGES_URL/html/$dir_name/$filename"
+                    local url="$GITHUB_PAGES_URL/$dir_name/$filename"
                     echo "- 🔗 [$title]($url)" >> "$readme"
                     found=true
                 fi

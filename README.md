@@ -11,11 +11,11 @@
 
 ### 📁 snake-js
 
-- 🔗 [Snake-js](https://EdouardLAURENT.github.io/Convert/html/snake-js/Snake-js.html)
+- 🔗 [Snake-js](https://EdouardLAURENT.github.io/Convert/snake-js/Snake-js.html)
 
 ### 📁 test-cours
 
-- 🔗 [index](https://EdouardLAURENT.github.io/Convert/html/test-cours/index.html)
+- 🔗 [index](https://EdouardLAURENT.github.io/Convert/test-cours/index.html)
 
 ---
 
@@ -38,4 +38,4 @@
 
 ---
 
-_Généré automatiquement par Convert • 21/10/2025 11:37_
+_Généré automatiquement par Convert • 21/10/2025 11:42_
