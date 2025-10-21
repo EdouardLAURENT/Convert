@@ -67,3 +67,17 @@ Ce template est prêt à l'emploi pour vos projets de documentation !
 ---
 
 **Créé avec ❤️ par Convert**
+
+
+## Test de la nouvelle structure
+
+Cette section a été ajoutée pour tester la nouvelle structure avec `.convert/`
+
+### Fonctionnalités testées
+
+- ✅ Wrapper `convert` fonctionnel
+- ✅ Moteur `.convert/engine.sh` opérationnel  
+- ✅ Configuration `.convert/config.conf` chargée
+- ✅ Templates `.convert/templates/` accessibles
+
+**Tout fonctionne parfaitement https://github.com/EdouardLAURENT/Convert/actions*
