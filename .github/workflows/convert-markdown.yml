@@ -20,29 +20,69 @@ jobs:
         with:
           fetch-depth: 0
       
+      - name: 📁 Ensure directories exist
+        run: |
+          mkdir -p markdown html
+          echo "✓ Directories created/verified"
+      
       - name: 📦 Install Pandoc
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc
           pandoc --version
       
-      - name: 🔄 Convert Markdown to HTML
+      - name: � Check markdown files
+        run: |
+          echo "Checking for markdown files..."
+          find markdown -name "*.md" -type f || echo "No markdown files found"
+          ls -la markdown/ || echo "markdown/ directory not found"
+      
+      - name: 🔧 Verify script and config
+        run: |
+          echo "Checking convert.sh..."
+          test -f convert.sh && echo "✓ convert.sh exists" || exit 1
+          test -f config.conf && echo "✓ config.conf exists" || echo "⚠️  config.conf missing"
+          test -d templates && echo "✓ templates/ exists" || exit 1
+          test -f templates/epitech-academy.html && echo "✓ template exists" || exit 1
+      
+      - name: �🔄 Convert Markdown to HTML
         run: |
           chmod +x convert.sh
-          ./convert.sh
+          ./convert.sh || {
+            echo "❌ Conversion failed!"
+            echo "Content of markdown/:"
+            ls -la markdown/
+            exit 1
+          }
       
       - name: 📊 List generated files
         run: |
           echo "Generated HTML files:"
-          find html -type f -name "*.html" || echo "No HTML files found"
+          if [ -d html ]; then
+            find html -type f -name "*.html" || echo "No HTML files found"
+            ls -la html/
+          else
+            echo "❌ html/ directory was not created"
+            exit 1
+          fi
       
       - name: 💾 Commit and push HTML files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          
+          # Ajouter les fichiers HTML générés
           git add html/
-          git diff --staged --quiet || git commit -m "🤖 Auto-convert: Markdown → HTML [skip ci]"
-          git push
+          
+          # Vérifier s'il y a des changements
+          if git diff --staged --quiet; then
+            echo "ℹ️  No changes to commit"
+          else
+            echo "📝 Committing changes..."
+            git commit -m "🤖 Auto-convert: Markdown → HTML [skip ci]"
+            git push
+            echo "✅ Changes pushed successfully"
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
