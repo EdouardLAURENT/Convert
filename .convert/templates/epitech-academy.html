@@ -199,8 +199,8 @@ $endif$
 
     /* === HEADER === */
     header {
-      background: var(--bleu-epitech);
-      color: var(--blanc);
+      background: var(--background-primary);
+      color: var(--text-primary);
       padding: var(--spacing-lg);
       padding-left: calc((100% - 900px) / 2 + var(--spacing-md));
       padding-right: calc((100% - 900px) / 2 + var(--spacing-md));
@@ -211,11 +211,20 @@ $endif$
       align-items: center;
       justify-content: space-between;
       gap: var(--spacing-xl);
+      border-bottom: 1px solid var(--border-color);
     }
 
     header * {
       position: relative;
-      color: var(--blanc);
+      color: var(--text-primary);
+    }
+
+    header h1 {
+      color: var(--bleu-epitech) !important;
+    }
+
+    [data-theme="dark"] header h1 {
+      color: var(--vert-epitech) !important;
     }
 
     /* Logo Epitech dans le header (SVG inline) */
@@ -226,11 +235,12 @@ $endif$
       opacity: 1;
     }
 
+    /* Logo noir en light mode, blanc en dark mode */
     .header-logo path,
     .header-logo rect,
     .header-logo polygon,
     .header-logo text {
-      fill: var(--blanc);
+      fill: var(--text-primary);
     }
 
     .header-content {
