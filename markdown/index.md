@@ -1,6 +1,6 @@
-# Exemple de workshop
+# Exemple de coding club
 
-Bienvenue dans ce workshop d'exemple !
+Bienvenue dans ce coding club d'exemple !
 
 ## Introduction
 
