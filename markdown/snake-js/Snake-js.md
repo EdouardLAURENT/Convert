@@ -2,7 +2,7 @@
 title: "Snake JS"
 subtitle: "Atelier Coding Club"
 author: "Licence Creative Commons"
-date: "10/2025"
+date: "21/10/2025"
 ---
 
 # Lore
