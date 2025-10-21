@@ -13,6 +13,10 @@
 
 - 🔗 [index](https://EdouardLAURENT.github.io/Convert/exemple/index.html)
 
+### 📁 snake-js
+
+- 🔗 [Snake-js](https://EdouardLAURENT.github.io/Convert/snake-js/Snake-js.html)
+
 ---
 
 ## 🚀 Utilisation
@@ -34,4 +38,4 @@
 
 ---
 
-_Généré automatiquement par Convert • 21/10/2025 14:25_
+_Généré automatiquement par Convert • 21/10/2025 18:06_
