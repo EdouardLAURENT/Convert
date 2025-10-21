@@ -63,20 +63,22 @@ MON_PROJET/
 │   ├── index.html
 │   └── chapitre-1.html
 │
-├── templates/            # 🎨 Personnalisable
-│   └── epitech-academy.html
+├── .convert/             # 🔧 Moteur (ne pas modifier)
+│   ├── engine.sh
+│   ├── config.conf
+│   └── templates/
 │
-└── config.conf          # ⚙️ Configuration
+└── convert               # Script de conversion
 ```
 
 ## ⚡ Commandes rapides
 
 ```bash
 # Test local (nécessite Pandoc)
-./convert.sh
+./convert
 
 # Convertir un dossier spécifique
-./convert.sh chapitre-1
+./convert chapitre-1
 
 # Ouvrir le résultat
 open html/index.html
@@ -109,14 +111,17 @@ git add . && git commit -m "Add: structure cours" && git push
 ## 🔧 Personnalisation
 
 ### Modifier le template HTML
-Éditez `templates/epitech-academy.html` pour changer le style
+Copiez et éditez un template dans `.convert/templates/`
 
 ### Modifier la configuration
-Éditez `config.conf` :
+Créez un fichier `config.conf` **à la racine** :
 ```bash
 # Activer/désactiver la table des matières
 TOC_ENABLED="true"
 TOC_DEPTH="3"
+
+# Changer le template
+TEMPLATE="templates/mon-template.html"
 
 # Copie des images
 COPY_IMAGES="true"

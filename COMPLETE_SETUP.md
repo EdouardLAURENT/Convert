@@ -17,16 +17,16 @@ Convert/
 │   └── workflows/
 │       ├── convert-markdown.yml   # Conversion auto
 │       └── deploy-pages.yml       # Déploiement auto
+├── .convert/                      # 🔧 Moteur (ne pas modifier)
+│   ├── engine.sh                 # Script de conversion
+│   ├── config.conf               # Configuration par défaut
+│   └── templates/                # Templates HTML
 ├── markdown/
 │   └── index.md                   # Exemple de contenu
 ├── html/
 │   └── index.html                 # Généré automatiquement
-├── templates/
-│   ├── epitech-academy.html       # Template principal
-│   └── index-template.html        # Template alternatif
-├── convert.sh                     # Script de conversion
+├── convert                        # Script principal (wrapper)
 ├── check.sh                       # Script de vérification
-├── config.conf                    # Configuration
 └── Documentation/
     ├── README.md                  # Documentation principale
     ├── QUICKSTART.md              # Démarrage rapide
@@ -36,7 +36,7 @@ Convert/
 ```
 
 #### 🔧 Scripts utiles
-- `./convert.sh` : Convertit les Markdown en HTML
+- `./convert` : Convertit les Markdown en HTML
 - `./check.sh` : Vérifie que tout est en ordre
 
 ## 🚀 Prochaines étapes sur GitHub
@@ -230,13 +230,13 @@ markdown/
 ./check.sh
 
 # Conversion locale
-./convert.sh
+./convert
 
 # Conversion d'un dossier spécifique
-./convert.sh mon-dossier
+./convert mon-dossier
 
 # Test complet
-./check.sh && ./convert.sh && open html/index.html
+./check.sh && ./convert && open html/index.html
 
 # Push avec vérification
 ./check.sh && git push

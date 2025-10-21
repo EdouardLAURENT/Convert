@@ -37,11 +37,13 @@ check() {
 }
 
 echo "📦 Fichiers essentiels"
-check "convert.sh existe" "[ -f convert.sh ]"
-check "convert.sh est exécutable" "[ -x convert.sh ]"
-check "config.conf existe" "[ -f config.conf ]"
+check "convert existe" "[ -f convert ]"
+check "convert est exécutable" "[ -x convert ]"
+check ".convert/engine.sh existe" "[ -f .convert/engine.sh ]"
+check ".convert/engine.sh est exécutable" "[ -x .convert/engine.sh ]"
+check ".convert/config.conf existe" "[ -f .convert/config.conf ]"
 check "README.md existe" "[ -f README.md ]"
-check "Templates existent" "[ -d templates ] && [ -f templates/epitech-academy.html ]"
+check "Templates existent" "[ -d .convert/templates ] && [ -f .convert/templates/epitech-academy.html ]"
 echo ""
 
 echo "📁 Structure des dossiers"
@@ -80,7 +82,7 @@ echo ""
 echo "🧪 Test de conversion"
 if [ "$md_count" -gt 0 ] && command -v pandoc &> /dev/null; then
     echo "  Tentative de conversion..."
-    if ./convert.sh &> /tmp/convert_test.log; then
+    if ./convert &> /tmp/convert_test.log; then
         echo -e "  ${GREEN}✓${NC} Conversion réussie"
         html_count=$(find html -name "*.html" -type f 2>/dev/null | wc -l | tr -d ' ')
         echo "    $html_count fichier(s) HTML généré(s)"

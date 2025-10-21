@@ -37,26 +37,28 @@ pandoc --version
 ## 📁 Structure du projet
 
 ```
+```
 Convert/
-├── convert.sh              # Script principal de conversion
-├── config.conf            # Fichier de configuration
+├── convert                # Script de conversion (wrapper)
 ├── markdown/              # 📂 DOSSIER CLÉ : Vos fichiers .md source
 │   └── exemple/
 │       └── index.md
 ├── html/                  # 📂 DOSSIER CLÉ : Fichiers HTML générés
 │   └── exemple/
 │       └── index.html
-├── templates/             # Templates HTML personnalisés
-│   ├── epitech-academy.html
-│   ├── index-template.html
-│   └── fonts/
+├── .convert/              # 🔧 Moteur de conversion (ne pas modifier)
+│   ├── engine.sh         # Script principal
+│   ├── config.conf       # Configuration par défaut
+│   └── templates/        # Templates HTML
 └── sujet/                 # Dossier optionnel pour images
+```
 ```
 
 ### 🔑 Dossiers clés
 
 - **`markdown/`** : Placez vos fichiers Markdown source ici. L'arborescence sera reproduite dans `html/`
 - **`html/`** : Dossier de sortie où seront générés vos fichiers HTML
+- **`.convert/`** : Moteur de conversion (ne pas modifier, géré par le template)
 
 ## 🚀 Utilisation
 
@@ -87,10 +89,10 @@ Consultez la documentation complète : [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)
 
 ### Mode 2 : Conversion locale
 
-#### Convertir tous les fichiers
+### Convertir tous les fichiers
 
 ```bash
-./convert.sh
+./convert
 ```
 
 Convertit tous les fichiers `.md` du dossier `markdown/` vers `html/`
@@ -98,26 +100,28 @@ Convertit tous les fichiers `.md` du dossier `markdown/` vers `html/`
 ### Convertir un dossier spécifique
 
 ```bash
-./convert.sh nom-du-dossier
+./convert nom-du-dossier
 ```
 
 Exemple :
 ```bash
-./convert.sh Snake-js
+./convert Snake-js
 ```
 
 Convertit uniquement `markdown/Snake-js/` vers `html/Snake-js/`
 
 ## ⚙️ Configuration
 
-Le fichier `config.conf` permet de personnaliser le comportement :
+Le fichier `.convert/config.conf` contient la configuration par défaut.
+
+Pour personnaliser, créez un fichier `config.conf` **à la racine** du projet :
 
 ```bash
 # Dossiers
-INPUT_DIR="./markdown"     # Dossier source
-OUTPUT_DIR="./html"        # Dossier de sortie
+INPUT_DIR="markdown"       # Dossier source
+OUTPUT_DIR="html"          # Dossier de sortie
 
-# Template
+# Template (relatif à .convert/)
 TEMPLATE="templates/epitech-academy.html"
 
 # Options
@@ -173,7 +177,7 @@ IMAGE_SOURCES="markdown sujet"
 
 2. **Convertir** :
    ```bash
-   ./convert.sh mon-projet
+   ./convert mon-projet
    ```
 
 3. **Ouvrir le résultat** :
@@ -183,8 +187,11 @@ IMAGE_SOURCES="markdown sujet"
 
 ## 🎨 Templates disponibles
 
+Les templates sont dans `.convert/templates/` :
 - `epitech-academy.html` : Template style Epitech Academy
 - `index-template.html` : Template générique
+
+Pour personnaliser, créez votre propre template dans `.convert/templates/` et référencez-le dans votre `config.conf` à la racine.
 
 ## 📄 Licence
 

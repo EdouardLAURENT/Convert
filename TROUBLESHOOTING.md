@@ -37,7 +37,7 @@ Ce script vérifie :
 2. **Template introuvable**
    ```bash
    # Vérifiez que le template existe
-   ls -la templates/epitech-academy.html
+   ls -la .convert/templates/epitech-academy.html
    ```
 
 3. **Permissions GitHub Actions insuffisantes**
@@ -47,7 +47,7 @@ Ce script vérifie :
    - Sauvegardez
 
 4. **Erreur de syntaxe Markdown**
-   - Testez localement : `./convert.sh`
+   - Testez localement : `./convert`
    - Vérifiez les logs d'erreur dans Actions
 
 ### ❌ GitHub Pages ne s'affiche pas
@@ -142,7 +142,7 @@ Pas besoin de corriger, ce n'est pas une erreur.
 ./check.sh
 
 # 2. Conversion
-./convert.sh
+./convert
 
 # 3. Vérifier le résultat
 open html/index.html
@@ -186,7 +186,7 @@ docker run --rm -v $(pwd):/workspace -w /workspace ubuntu:latest bash -c "
 
 ```bash
 # Voir les logs détaillés de Pandoc
-./convert.sh 2>&1 | tee /tmp/convert.log
+./convert 2>&1 | tee /tmp/convert.log
 
 # Vérifier les erreurs
 grep -i error /tmp/convert.log

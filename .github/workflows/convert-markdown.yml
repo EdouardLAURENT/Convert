@@ -39,16 +39,17 @@ jobs:
       
       - name: 🔧 Verify script and config
         run: |
-          echo "Checking convert.sh..."
-          test -f convert.sh && echo "✓ convert.sh exists" || exit 1
-          test -f config.conf && echo "✓ config.conf exists" || echo "⚠️  config.conf missing"
-          test -d templates && echo "✓ templates/ exists" || exit 1
-          test -f templates/epitech-academy.html && echo "✓ template exists" || exit 1
+          echo "Checking convert engine..."
+          test -f convert && echo "✓ convert wrapper exists" || exit 1
+          test -f .convert/engine.sh && echo "✓ .convert/engine.sh exists" || exit 1
+          test -f .convert/config.conf && echo "✓ .convert/config.conf exists" || echo "⚠️  config.conf missing"
+          test -d .convert/templates && echo "✓ templates/ exists" || exit 1
+          test -f .convert/templates/epitech-academy.html && echo "✓ template exists" || exit 1
       
-      - name: �🔄 Convert Markdown to HTML
+      - name: 🔄 Convert Markdown to HTML
         run: |
-          chmod +x convert.sh
-          ./convert.sh || {
+          chmod +x convert .convert/engine.sh
+          ./convert || {
             echo "❌ Conversion failed!"
             echo "Content of markdown/:"
             ls -la markdown/

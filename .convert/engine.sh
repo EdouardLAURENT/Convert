@@ -9,22 +9,31 @@
 
 set -euo pipefail  # Mode strict : arrêt sur erreur
 
+# Déterminer le répertoire du script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 # Charger la configuration
-CONFIG_FILE="./config.conf"
+CONFIG_FILE="$SCRIPT_DIR/config.conf"
 if [ -f "$CONFIG_FILE" ]; then
     source "$CONFIG_FILE"
 else
     echo "⚠️  Fichier de configuration non trouvé: $CONFIG_FILE"
     echo "Utilisation des valeurs par défaut."
-    INPUT_DIR="./markdown"
-    OUTPUT_DIR="./html"
-    TEMPLATE="templates/epitech-academy.html"
+    INPUT_DIR="$PROJECT_ROOT/markdown"
+    OUTPUT_DIR="$PROJECT_ROOT/html"
+    TEMPLATE="$SCRIPT_DIR/templates/epitech-academy.html"
     SYNTAX_STYLE="breezedark"
     TOC_ENABLED="true"
     TOC_DEPTH="3"
     COPY_IMAGES="true"
     IMAGE_SOURCES="markdown sujet"
 fi
+
+# S'assurer que les chemins sont absolus ou relatifs au projet
+[[ "$INPUT_DIR" != /* ]] && INPUT_DIR="$PROJECT_ROOT/$INPUT_DIR"
+[[ "$OUTPUT_DIR" != /* ]] && OUTPUT_DIR="$PROJECT_ROOT/$OUTPUT_DIR"
+[[ "$TEMPLATE" != /* ]] && TEMPLATE="$SCRIPT_DIR/$TEMPLATE"
 
 #═══════════════════════════════════════════════════════════════
 # Fonctions
