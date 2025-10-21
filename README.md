@@ -1,5 +1,9 @@
 # Convert 📝
 
+[![Convert Markdown](https://github.com/EdouardLAURENT/Convert/actions/workflows/convert-markdown.yml/badge.svg)](https://github.com/EdouardLAURENT/Convert/actions/workflows/convert-markdown.yml)
+[![Deploy Pages](https://github.com/EdouardLAURENT/Convert/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/EdouardLAURENT/Convert/actions/workflows/deploy-pages.yml)
+[![Template](https://img.shields.io/badge/template-ready-brightgreen.svg)](https://github.com/EdouardLAURENT/Convert/generate)
+
 Convertisseur Markdown → HTML avec Pandoc et templates personnalisés + Déploiement automatique via GitHub Actions.
 
 ## 📋 Description

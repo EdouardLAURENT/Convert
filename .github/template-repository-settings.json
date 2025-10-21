@@ -1,0 +1,22 @@
+{
+  "name": "Convert - Markdown to HTML Template",
+  "description": "🚀 Template pour convertir automatiquement Markdown → HTML avec GitHub Actions et déployer sur GitHub Pages. Parfait pour la documentation, cours, tutoriels.",
+  "topics": [
+    "markdown",
+    "html",
+    "pandoc",
+    "github-actions",
+    "github-pages",
+    "documentation",
+    "template",
+    "converter",
+    "automation",
+    "education"
+  ],
+  "homepage": "https://github.com/EdouardLAURENT/Convert",
+  "private": false,
+  "has_issues": true,
+  "has_projects": false,
+  "has_wiki": false,
+  "is_template": true
+}
