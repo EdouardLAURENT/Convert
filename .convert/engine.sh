@@ -26,8 +26,6 @@ else
     SYNTAX_STYLE="breezedark"
     TOC_ENABLED="true"
     TOC_DEPTH="3"
-    COPY_IMAGES="true"
-    IMAGE_SOURCES="markdown sujet"
 fi
 
 # S'assurer que les chemins sont absolus ou relatifs au projet
@@ -70,15 +68,16 @@ convert_file() {
         echo "✗ Erreur: $(basename "$input")"
 }
 
-# Copier les images d'un répertoire spécifique
-copy_directory_images() {
-    local source_dir="$1"
+# Copier les ressources statiques d'un répertoire
+copy_static_resources() {
+    local dir_name="$1"
     local target_dir="$2"
+    local static_dir="$PROJECT_ROOT/static/$dir_name"
     
-    if [ -d "$source_dir/images" ]; then
+    if [ -d "$static_dir" ]; then
         mkdir -p "$target_dir"
-        cp -r "$source_dir/images" "$target_dir/" 2>/dev/null && \
-            echo "✓ Images copiées depuis $source_dir/images/"
+        cp -r "$static_dir"/* "$target_dir/" 2>/dev/null && \
+            echo "✓ Ressources statiques copiées depuis static/$dir_name/"
     fi
 }
 
@@ -121,8 +120,8 @@ convert_directory() {
         fi
     done
     
-    # Copier les images du répertoire
-    [ "$COPY_IMAGES" = "true" ] && copy_directory_images "$source_dir" "$target_dir"
+    # Copier les ressources statiques du répertoire
+    copy_static_resources "$dir_name" "$target_dir"
     
     echo ""
     echo "✅ Répertoire $dir_name converti → $target_dir/"
@@ -133,11 +132,12 @@ convert_all() {
     local md_files=("$INPUT_DIR"/*.md)
     local count=0
     
-    # Compter les fichiers .md directs
+    # Compter les fichiers .md directs à la racine
     for file in "${md_files[@]}"; do
         [ -f "$file" ] && ((count++))
     done
     
+    # Convertir les fichiers .md à la racine de markdown/
     if [ $count -gt 0 ]; then
         echo ""
         echo "📄 $count fichier(s) trouvé(s) dans $INPUT_DIR/"
@@ -150,17 +150,90 @@ convert_all() {
                 convert_file "$file" "$output"
             fi
         done
+        
+        # Copier les ressources statiques de la racine (si elles existent)
+        if [ -d "$PROJECT_ROOT/static" ] && [ "$(ls -A "$PROJECT_ROOT/static" 2>/dev/null)" ]; then
+            cp -r "$PROJECT_ROOT/static"/* "$OUTPUT_DIR/" 2>/dev/null && \
+                echo "✓ Ressources statiques copiées depuis static/"
+        fi
     fi
     
-    # Copier les images globales
-    if [ "$COPY_IMAGES" = "true" ]; then
-        for source_dir in $IMAGE_SOURCES; do
-            if [ -d "$source_dir/images" ]; then
-                cp -r "$source_dir/images" "$OUTPUT_DIR/" 2>/dev/null && \
-                    echo "✓ Images copiées depuis $source_dir/"
-            fi
-        done
+    # Traiter récursivement tous les sous-répertoires de markdown/
+    for dir in "$INPUT_DIR"/*/ ; do
+        if [ -d "$dir" ]; then
+            local dir_name=$(basename "$dir")
+            convert_directory "$dir_name"
+        fi
+    done
+}
+
+# Générer le README avec les liens GitHub Pages
+generate_readme() {
+    local readme="$PROJECT_ROOT/README.md"
+    
+    echo "# Convert 📝→🌐" > "$readme"
+    echo "" >> "$readme"
+    echo "[![Convert Markdown](https://github.com/$GITHUB_USER/$GITHUB_REPO/actions/workflows/convert-markdown.yml/badge.svg)](https://github.com/$GITHUB_USER/$GITHUB_REPO/actions/workflows/convert-markdown.yml)" >> "$readme"
+    echo "[![Deploy Pages](https://github.com/$GITHUB_USER/$GITHUB_REPO/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/$GITHUB_USER/$GITHUB_REPO/actions/workflows/deploy-pages.yml)" >> "$readme"
+    echo "" >> "$readme"
+    echo "**Convertisseur automatique Markdown → HTML avec déploiement GitHub Pages**" >> "$readme"
+    echo "" >> "$readme"
+    echo "---" >> "$readme"
+    echo "" >> "$readme"
+    echo "## 📚 Cours disponibles" >> "$readme"
+    echo "" >> "$readme"
+    
+    # Parcourir tous les sous-répertoires et fichiers HTML
+    local found=false
+    for dir in "$OUTPUT_DIR"/*/ ; do
+        if [ -d "$dir" ]; then
+            local dir_name=$(basename "$dir")
+            echo "### 📁 $dir_name" >> "$readme"
+            echo "" >> "$readme"
+            
+            # Lister tous les fichiers HTML du répertoire
+            for html_file in "$dir"/*.html ; do
+                if [ -f "$html_file" ]; then
+                    local filename=$(basename "$html_file")
+                    local title="${filename%.html}"
+                    local url="$GITHUB_PAGES_URL/html/$dir_name/$filename"
+                    echo "- 🔗 [$title]($url)" >> "$readme"
+                    found=true
+                fi
+            done
+            echo "" >> "$readme"
+        fi
+    done
+    
+    if [ "$found" = false ]; then
+        echo "_Aucun cours disponible pour le moment._" >> "$readme"
+        echo "" >> "$readme"
     fi
+    
+    echo "---" >> "$readme"
+    echo "" >> "$readme"
+    echo "## 🚀 Utilisation" >> "$readme"
+    echo "" >> "$readme"
+    echo "1. Ajoutez vos fichiers Markdown dans \`markdown/NOM_COURS/\`" >> "$readme"
+    echo "2. Ajoutez vos ressources (images, etc.) dans \`static/NOM_COURS/\`" >> "$readme"
+    echo "3. Committez et pushez → La conversion se fait automatiquement via GitHub Actions" >> "$readme"
+    echo "4. Les pages sont déployées sur GitHub Pages" >> "$readme"
+    echo "" >> "$readme"
+    echo "### Conversion locale" >> "$readme"
+    echo "" >> "$readme"
+    echo "\`\`\`bash" >> "$readme"
+    echo "# Convertir tous les cours" >> "$readme"
+    echo "./.convert/engine.sh" >> "$readme"
+    echo "" >> "$readme"
+    echo "# Convertir un cours spécifique" >> "$readme"
+    echo "./.convert/engine.sh nom-du-cours" >> "$readme"
+    echo "\`\`\`" >> "$readme"
+    echo "" >> "$readme"
+    echo "---" >> "$readme"
+    echo "" >> "$readme"
+    echo "_Généré automatiquement par Convert • $(date '+%d/%m/%Y %H:%M')_" >> "$readme"
+    
+    echo "✓ README.md mis à jour avec $(find "$OUTPUT_DIR" -name "*.html" | wc -l | tr -d ' ') lien(s)"
 }
 
 #═══════════════════════════════════════════════════════════════
@@ -183,6 +256,9 @@ main() {
     else
         # Mode conversion complète
         convert_all
+        # Générer le README avec les liens
+        echo ""
+        generate_readme
     fi
     
     echo ""
