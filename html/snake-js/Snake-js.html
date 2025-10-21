@@ -5,6 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Licence Creative Commons" />
+  <meta name="dcterms.date" content="2025-01-01" />
   <title>Snake JS</title>
   
   <style>
@@ -1129,7 +1130,7 @@
     <div class="header-meta">
             <span class="subtitle">Atelier Coding Club</span>
                   <span class="author">Licence Creative Commons</span>
-                  <span class="date">21/10/2025</span>
+                  <span class="date">2025</span>
           </div>
   </div>
   <svg class="header-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.68 176.49">
@@ -1272,14 +1273,15 @@ l’utilisation de cette fonction dans la référence de p5js qui est une
 documentation technique en ligne : <a
 href="https://p5js.org/reference/p5/line/"
 class="uri">https://p5js.org/reference/p5/line/</a></p>
-<pre class="javascript"><code>function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-  line(0,0,10,40);
-}</code></pre>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="dv">40</span>)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Maintenant tu vas apprendre à utiliser une boucle <code>for</code>, à
 la différence de le fonction <code>line</code> cette instruction n’est
 pas spécifique à p5.js, c’est une fonctionnalité du langage javascript.
@@ -1290,17 +1292,18 @@ class="uri">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/State
 <p>Dans cette deuxième étape, tu vas dessiner 10 lignes espacées à
 chaque fois de 10 pixels avec une seule instruction <code>line</code>
 grâce à une boucle <code>for</code></p>
-<pre class="javascript"><code>function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-  for (i=0; i &lt; 10; i++)
-  {
-    line(i*10,0,i*10,40);
-  }
-}</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">line</span>(i<span class="op">*</span><span class="dv">10</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>i<span class="op">*</span><span class="dv">10</span><span class="op">,</span><span class="dv">40</span>)<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="exercice">Exercice</h2>
 <p>Ton objectif est de dessiner une grille blanche sur l’ensemble de ton
 espace d’affichage</p>
@@ -1330,49 +1333,52 @@ class="uri">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Globa
 Dans un premier temps, tu vas créer un tableau <code>snake</code> et
 ensuite remplir 3 cases du tableaux avec la méthode
 <code>push</code></p>
-<pre class="javascript"><code>function setup() {
-  createCanvas(400, 400);
-  snake = [];
-  snake.push([90, 90]);
-  snake.push([90, 100]);
-  snake.push([90, 110]);
-}
-
-function draw() {
-  background(220);
-  rect(50,60,10,20);
-}</code></pre>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  snake <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">push</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">90</span>])<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">push</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">100</span>])<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">push</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">50</span><span class="op">,</span><span class="dv">60</span><span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Grâce à l’instruction <code>foreach</code> tu vas pouvoir parcourir
 tous les éléments du tableau, dans cette exemple tu vas afficher tous
 les éléments de ton tableau dans la console que tu peux retrouver en
 dessous de ta fenêtre de code</p>
-<pre class="javascript"><code>function setup() {
-  createCanvas(400, 400);
-  snake = [];
-  snake.push([90, 90]);
-  snake.push([90, 100]);
-  snake.push([90, 110]);
-  snake.forEach((element) =&gt; {
-    console.log(element[0],element[1]);
-  });
-}
-
-function draw() {
-  background(220);
-  rect(50,60,10,20);
-}</code></pre>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  snake <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">push</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">90</span>])<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">push</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">100</span>])<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">push</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">forEach</span>((element) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(element[<span class="dv">0</span>]<span class="op">,</span>element[<span class="dv">1</span>])<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">50</span><span class="op">,</span><span class="dv">60</span><span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Et enfin tu vas dessiner un rectangle dans la fenêtre de preview
 grâce à la fonction <code>rect</code> : <a
 href="https://p5js.org/reference/p5/rect/"
 class="uri">https://p5js.org/reference/p5/rect/</a></p>
-<pre class="javascript"><code>function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-  rect(50,60,10,20);
-}</code></pre>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rect</span>(<span class="dv">50</span><span class="op">,</span><span class="dv">60</span><span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="exercice-1">Exercice</h2>
 <p>Ton objectif est de dessiner ton serpent avec les caractéristiques
 suivantes : couleur verte et longueur de 3 cases en utilisant un
@@ -1404,45 +1410,48 @@ programme.</p>
 <p>Grâce à la fonction <code>keyPressed</code>, tu vas mettre à jour la
 variable <code>snake_direction</code> lorsque tu appuies sur les flèches
 de ton clavier ◀️ 🔼 🔽 ▶️</p>
-<pre class="javascript"><code>// IMPORTANT 
-// il faut déclarer la variable snake_direction et l&#39;initaliser dans la fonction setup()
-// snake_direction = &quot;down&quot;;
-
-function keyPressed() {
-  if (keyCode == UP_ARROW) {
-    snake_direction = &quot;up&quot;;
-  } else if (keyCode == DOWN_ARROW) {
-    snake_direction = &quot;down&quot;;
-  } else if (keyCode == LEFT_ARROW) {
-    snake_direction = &quot;left&quot;;
-  } else if (keyCode == RIGHT_ARROW) {
-    snake_direction = &quot;right&quot;;
-  }
-}</code></pre>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// IMPORTANT </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// il faut déclarer la variable snake_direction et l&#39;initaliser dans la fonction setup()</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// snake_direction = &quot;down&quot;;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">keyPressed</span>() {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (keyCode <span class="op">==</span> UP_ARROW) {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    snake_direction <span class="op">=</span> <span class="st">&quot;up&quot;</span><span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (keyCode <span class="op">==</span> DOWN_ARROW) {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    snake_direction <span class="op">=</span> <span class="st">&quot;down&quot;</span><span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (keyCode <span class="op">==</span> LEFT_ARROW) {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    snake_direction <span class="op">=</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (keyCode <span class="op">==</span> RIGHT_ARROW) {</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    snake_direction <span class="op">=</span> <span class="st">&quot;right&quot;</span><span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Grâce à la fonction <code>next_direction</code>, tu vas calculer la
 prochaine position de la tête du serpent et mettre à jour la variable
 <code>snake_next_direction</code>, le principe est d’ajouter ou de
 retirer 10 pixels au coordonnées x ou y en fonction de la prochaine
 direction de la tête du serpent.</p>
-<pre class="javascript"><code>function next_direction() {
-  snake_next_direction = null;
-  if (snake_direction == &quot;up&quot;) {
-    snake_next_direction = [snake[0][0], snake[0][1] - 10];
-  } else if (snake_direction == &quot;down&quot;) {
-    snake_next_direction = [snake[0][0], snake[0][1] + 10];
-  } else if (snake_direction == &quot;left&quot;) {
-    snake_next_direction = [snake[0][0] - 10, snake[0][1]];
-  } else if (snake_direction == &quot;right&quot;) {
-    snake_next_direction = [snake[0][0] + 10, snake[0][1]];
-  }
-}</code></pre>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">next_direction</span>() {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  snake_next_direction <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (snake_direction <span class="op">==</span> <span class="st">&quot;up&quot;</span>) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    snake_next_direction <span class="op">=</span> [snake[<span class="dv">0</span>][<span class="dv">0</span>]<span class="op">,</span> snake[<span class="dv">0</span>][<span class="dv">1</span>] <span class="op">-</span> <span class="dv">10</span>]<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (snake_direction <span class="op">==</span> <span class="st">&quot;down&quot;</span>) {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    snake_next_direction <span class="op">=</span> [snake[<span class="dv">0</span>][<span class="dv">0</span>]<span class="op">,</span> snake[<span class="dv">0</span>][<span class="dv">1</span>] <span class="op">+</span> <span class="dv">10</span>]<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (snake_direction <span class="op">==</span> <span class="st">&quot;left&quot;</span>) {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    snake_next_direction <span class="op">=</span> [snake[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">-</span> <span class="dv">10</span><span class="op">,</span> snake[<span class="dv">0</span>][<span class="dv">1</span>]]<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (snake_direction <span class="op">==</span> <span class="st">&quot;right&quot;</span>) {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    snake_next_direction <span class="op">=</span> [snake[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> snake[<span class="dv">0</span>][<span class="dv">1</span>]]<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Grâce à la fonction <code>move_snake</code>, tu vas modifier les
 éléments du tableau <code>snake</code> grâce à la méthode
 <code>snake.pop()</code> et <code>snake.unshift()</code>.</p>
-<pre class="javascript"><code>function move_snake() {
-  snake.pop(); // supprime le dernier élément d&#39;un tableau
-  snake.unshift(snake_next_direction);  //ajoute un élément au début d&#39;un tableau
-}</code></pre>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">move_snake</span>() {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">pop</span>()<span class="op">;</span> <span class="co">// supprime le dernier élément d&#39;un tableau</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  snake<span class="op">.</span><span class="fu">unshift</span>(snake_next_direction)<span class="op">;</span>  <span class="co">//ajoute un élément au début d&#39;un tableau</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Une fois le tableau modifié, tu n’as pas à t’occuper de l’affichage —
 le code rédigé à l’étape précédente <strong>“Dessiner le
 serpent”</strong> s’occupera d’afficher le serpent au bon endroit.</p>
@@ -1450,16 +1459,17 @@ serpent”</strong> s’occupera d’afficher le serpent au bon endroit.</p>
 <code>setInterval</code> qui va exécuter toutes les 250 ms nos 3
 fonctions <code>keyPressed()</code>, <code>next_direction()</code>,
 <code>move_snake()</code></p>
-<pre class="javascript"><code>function setup() {
-  createCanvas(400, 400);
-  init_snake();
-  snake_direction = &quot;down&quot;;
-  setInterval(() =&gt; {
-    keyPressed();
-    next_direction();
-    move_snake();
-  }, 250);
-}</code></pre>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">init_snake</span>()<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  snake_direction <span class="op">=</span> <span class="st">&quot;down&quot;</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="pp">setInterval</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">keyPressed</span>()<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">next_direction</span>()<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">move_snake</span>()<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span> <span class="dv">250</span>)<span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <hr />
 <h1 id="afficher-les-pommes">Afficher les pommes</h1>
 <h2 id="tutoriel-2">Tutoriel</h2>
@@ -1468,10 +1478,11 @@ fonctions <code>keyPressed()</code>, <code>next_direction()</code>,
 exemple entre 1 et 10. Voici un exemple dans la fonction
 <code>setup()</code> qui va générer un nombre aléatoire et l’afficher
 dans la console</p>
-<pre class="javascript"><code>function setup() {
-  createCanvas(400, 400);
-  console.log(Math.floor(random(1, 11)));
-}</code></pre>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="fu">random</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">11</span>)))<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="exercice-2">Exercice</h2>
 <p>Ton objectif est de dessiner 10 pommes de couleur rouge placées sur
 la grille de manière aléatoire. Tu vas créer un nouveau tableau
@@ -1500,32 +1511,34 @@ utilisions cette instruction que nous appelons en programmation une
 condition. <a
 href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/if...else"
 class="uri">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/if...else</a></p>
-<pre class="javascript"><code>// Dans cet exemple, tu vas ajouter une condition dans la boucle de jeu
-// qui affiche un message dans la console 
-// lorsque le serpent se déplace vers la gauche
-
-setInterval(() =&gt; {
-  if ( snake_direction == &quot;left&quot;) {
-    console.log(&quot;Le serpent se déplace vers la gauche&quot;);
-  }
-}, 250);</code></pre>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Dans cet exemple, tu vas ajouter une condition dans la boucle de jeu</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">// qui affiche un message dans la console </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">// lorsque le serpent se déplace vers la gauche</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="pp">setInterval</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> ( snake_direction <span class="op">==</span> <span class="st">&quot;left&quot;</span>) {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Le serpent se déplace vers la gauche&quot;</span>)<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">250</span>)<span class="op">;</span></span></code></pre></div>
 <p>Pour supprimer un élément d’un tableau, tu va utiliser avec la
 méthode <code>splice</code>. La méthode <code>splice</code> prend en
 paramètre l’index de l’élément que tu veux supprimer. Pour trouver cet
 index, utilise la méthode <code>indexOf</code></p>
-<pre class="javascript"><code>// Dans cet exemple, tu vas supprimer l&#39;élément à l&#39;index 4 du tableau apples
-// On peut vérifier dans la console qu&#39;il y a un élement en moins 
-// et que c&#39;est bien l&#39;élément qui était à l&#39;index 4
-
-apples.forEach((element) =&gt; {
-  console.log(&quot;avant splice&quot;,apples.indexOf(element), apples[apples.indexOf(element)]);
-});
-
-apples.splice(4,1);
-
-apples.forEach((element) =&gt; {
-  console.log(&quot;après splice&quot;,apples.indexOf(element), apples[apples.indexOf(element)]);
-});</code></pre>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Dans cet exemple, tu vas supprimer l&#39;élément à l&#39;index 4 du tableau apples</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">// On peut vérifier dans la console qu&#39;il y a un élement en moins </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">// et que c&#39;est bien l&#39;élément qui était à l&#39;index 4</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>apples<span class="op">.</span><span class="fu">forEach</span>((element) <span class="kw">=&gt;</span> {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;avant splice&quot;</span><span class="op">,</span>apples<span class="op">.</span><span class="fu">indexOf</span>(element)<span class="op">,</span> apples[apples<span class="op">.</span><span class="fu">indexOf</span>(element)])<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>apples<span class="op">.</span><span class="fu">splice</span>(<span class="dv">4</span><span class="op">,</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>apples<span class="op">.</span><span class="fu">forEach</span>((element) <span class="kw">=&gt;</span> {</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;après splice&quot;</span><span class="op">,</span>apples<span class="op">.</span><span class="fu">indexOf</span>(element)<span class="op">,</span> apples[apples<span class="op">.</span><span class="fu">indexOf</span>(element)])<span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <h2 id="exercice-3">Exercice</h2>
 <p>Ton objectif est de faire en sorte que ton serpent grandisse quand il
 mange une pomme et que cette pomme disparaisse.</p>
@@ -1582,7 +1595,7 @@ rectangles.</li>
 <p>Cet atelier a été écrit et testé à Epitech Montpellier 💙 pour le
 Coding Club.</p>
 <footer>
-  <p>Document généré avec Pandoc • Epitech Academy © 21/10/2025</p>
+  <p>Document généré avec Pandoc • Epitech Academy © 2025</p>
 </footer>
 </div>
 

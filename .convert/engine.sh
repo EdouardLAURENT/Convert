@@ -37,25 +37,12 @@ fi
 # Fonctions
 #═══════════════════════════════════════════════════════════════
 
-# Vérifier Pandoc et détecter la version
+# Vérifier Pandoc
 check_pandoc() {
     if ! command -v pandoc &> /dev/null; then
         echo "❌ Pandoc n'est pas installé!"
         echo "Installation: brew install pandoc"
         exit 1
-    fi
-    
-    # Détecter quelle option utiliser pour désactiver la coloration syntaxique
-    local pandoc_version=$(pandoc --version | head -n1 | grep -oE '[0-9]+\.[0-9]+' | head -n1)
-    local major_version=$(echo "$pandoc_version" | cut -d. -f1)
-    local minor_version=$(echo "$pandoc_version" | cut -d. -f2)
-    
-    # --syntax-highlighting=none existe à partir de Pandoc 3.2
-    # Avant, il faut utiliser --no-highlight
-    if [ "$major_version" -gt 3 ] || ([ "$major_version" -eq 3 ] && [ "$minor_version" -ge 2 ]); then
-        HIGHLIGHT_OPT="--syntax-highlighting=none"
-    else
-        HIGHLIGHT_OPT="--no-highlight"
     fi
 }
 
@@ -73,7 +60,7 @@ convert_file() {
     # Créer le dossier de sortie si nécessaire
     mkdir -p "$output_dir"
     
-    local opts=("--template=$TEMPLATE" "$HIGHLIGHT_OPT")
+    local opts=("--template=$TEMPLATE")
     [ "$TOC_ENABLED" = "true" ] && opts+=("--toc" "--toc-depth=$TOC_DEPTH")
     
     if pandoc "${opts[@]}" "$input" -o "$output" 2>&1; then
