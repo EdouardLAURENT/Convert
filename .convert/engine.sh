@@ -60,12 +60,16 @@ convert_file() {
     # Créer le dossier de sortie si nécessaire
     mkdir -p "$output_dir"
     
-    local opts=("--template=$TEMPLATE" "--no-highlight")
+    local opts=("--template=$TEMPLATE" "--syntax-highlighting=none")
     [ "$TOC_ENABLED" = "true" ] && opts+=("--toc" "--toc-depth=$TOC_DEPTH")
     
-    pandoc "${opts[@]}" "$input" -o "$output" 2>/dev/null && \
-        echo "✓ $(basename "$input") → $(basename "$output")" || \
-        echo "✗ Erreur: $(basename "$input")"
+    if pandoc "${opts[@]}" "$input" -o "$output" 2>&1; then
+        echo "✓ $(basename "$input") → $(basename "$output")"
+    else
+        echo "✗ Erreur lors de la conversion de $(basename "$input")"
+        echo "   Commande: pandoc ${opts[*]} $input -o $output"
+        return 1
+    fi
 }
 
 # Copier les ressources statiques d'un répertoire
@@ -116,7 +120,10 @@ convert_directory() {
         if [ -f "$file" ]; then
             local filename=$(basename "$file")
             local output="$target_dir/${filename%.md}.html"
-            convert_file "$file" "$output"
+            if ! convert_file "$file" "$output"; then
+                echo "❌ Échec de la conversion pour $dir_name/$filename"
+                exit 1
+            fi
         fi
     done
     
