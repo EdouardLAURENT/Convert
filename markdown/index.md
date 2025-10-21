@@ -1,4 +1,4 @@
-# Exemple de coding club
+# Exemple de workshop
 
 Bienvenue dans ce coding club d'exemple !
 
