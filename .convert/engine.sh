@@ -104,7 +104,7 @@ convert_directory() {
     local count=0
     
     for file in "${md_files[@]}"; do
-        [ -f "$file" ] && ((count++))
+        [ -f "$file" ] && ((count++)) || true
     done
     
     if [ $count -eq 0 ]; then
@@ -141,7 +141,7 @@ convert_all() {
     
     # Compter les fichiers .md directs à la racine
     for file in "${md_files[@]}"; do
-        [ -f "$file" ] && ((count++))
+        [ -f "$file" ] && ((count++)) || true
     done
     
     # Convertir les fichiers .md à la racine de markdown/
