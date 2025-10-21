@@ -60,7 +60,7 @@ jobs:
             echo "Testing pandoc directly:"
             pandoc --version
             echo "Trying to convert first file manually:"
-            find markdown -name "*.md" -type f | head -1 | xargs -I {} sh -c 'echo "Converting: {}"; pandoc --template=.convert/templates/epitech-academy.html --syntax-highlighting=none {} -o /tmp/test.html 2>&1 || echo "Manual conversion failed"'
+            find markdown -name "*.md" -type f | head -1 | xargs -I {} sh -c 'echo "Converting: {}"; pandoc --template=.convert/templates/epitech-academy.html {} -o /tmp/test.html 2>&1 || echo "Manual conversion failed"'
             exit 1
           }
       
