@@ -70,7 +70,20 @@ Convert/
 4. Clonez et ajoutez vos fichiers `.md` dans `markdown/`
 5. Commitez et poussez → **La conversion est automatique !** ✨
 
-📖 **Guide complet** : Voir [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)
+## 🆘 Besoin d'aide ?
+
+### Avant de pousser sur GitHub
+```bash
+./check.sh  # Vérifie que tout est en ordre
+```
+
+### Documentation
+- � **[Guide complet d'utilisation](TEMPLATE_USAGE.md)**
+- 🚀 **[Quick Start](QUICKSTART.md)**
+- ⚙️ **[Configuration du template](SETUP_TEMPLATE.md)**
+- 🔧 **[Dépannage](TROUBLESHOOTING.md)**
+
+Consultez la documentation complète : [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)
 
 ### Mode 2 : Conversion locale
 
