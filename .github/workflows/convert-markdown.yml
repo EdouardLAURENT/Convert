@@ -48,10 +48,19 @@ jobs:
       - name: 🔄 Convert Markdown to HTML
         run: |
           chmod +x .convert/engine.sh
-          ./.convert/engine.sh || {
+          set -x  # Active le mode debug
+          ./.convert/engine.sh 2>&1 || {
             echo "❌ Conversion failed!"
             echo "Content of markdown/:"
             ls -la markdown/
+            echo "Content of markdown/snake-js/:"
+            ls -la markdown/snake-js/ || true
+            echo "Checking template:"
+            ls -la .convert/templates/ || true
+            echo "Testing pandoc directly:"
+            pandoc --version
+            echo "Trying to convert first file manually:"
+            find markdown -name "*.md" -type f | head -1 | xargs -I {} sh -c 'echo "Converting: {}"; pandoc --template=.convert/templates/epitech-academy.html --syntax-highlighting=none {} -o /tmp/test.html 2>&1 || echo "Manual conversion failed"'
             exit 1
           }
       
