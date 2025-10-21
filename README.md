@@ -1,10 +1,12 @@
 # Convert 📝
 
-Convertisseur Markdown → HTML avec Pandoc et templates personnalisés.
+Convertisseur Markdown → HTML avec Pandoc et templates personnalisés + Déploiement automatique via GitHub Actions.
 
 ## 📋 Description
 
 Convert est un outil qui transforme vos fichiers Markdown en pages HTML élégantes, en utilisant Pandoc et des templates personnalisables. Idéal pour générer de la documentation, des cours ou des tutoriels avec une mise en forme professionnelle.
+
+**🎯 Ce repository est un template** : Utilisez-le pour créer rapidement de nouveaux projets avec conversion automatique Markdown → HTML !
 
 ## 🔧 Prérequis
 
@@ -54,7 +56,21 @@ Convert/
 
 ## 🚀 Utilisation
 
-### Convertir tous les fichiers
+### Mode 1 : Utiliser ce repository comme template 🎯
+
+**Pour créer un nouveau projet "sujet" avec conversion automatique :**
+
+1. **Sur GitHub**, cliquez sur "Use this template" → "Create a new repository"
+2. Nommez votre projet (ex: "Snake-js", "Cours-Python")
+3. Dans le nouveau repository, allez dans **Settings** → **Pages** → Source: **GitHub Actions**
+4. Clonez et ajoutez vos fichiers `.md` dans `markdown/`
+5. Commitez et poussez → **La conversion est automatique !** ✨
+
+📖 **Guide complet** : Voir [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)
+
+### Mode 2 : Conversion locale
+
+#### Convertir tous les fichiers
 
 ```bash
 ./convert.sh
@@ -99,14 +115,38 @@ IMAGE_SOURCES="markdown sujet"
 ## ✨ Fonctionnalités
 
 - ✅ Conversion Markdown → HTML avec Pandoc
+- ✅ **Conversion automatique via GitHub Actions** 🤖
+- ✅ **Déploiement automatique sur GitHub Pages** 🌐
 - ✅ Templates personnalisables
 - ✅ Table des matières automatique
 - ✅ Coloration syntaxique avec Prism.js
 - ✅ Copie automatique des images
 - ✅ Préservation de l'arborescence des dossiers
 - ✅ Support de multiples langages de programmation
+- ✅ **Repository template prêt à l'emploi**
 
 ## 📝 Exemple de workflow
+
+### Avec GitHub Actions (automatique) 🤖
+
+1. **Créer un document** :
+   ```bash
+   echo "# Mon Projet" > markdown/mon-projet.md
+   ```
+
+2. **Commiter et pousser** :
+   ```bash
+   git add markdown/
+   git commit -m "Add: nouveau cours"
+   git push
+   ```
+
+3. **Magie** ✨ :
+   - GitHub Actions convertit automatiquement en HTML
+   - Le résultat est déployé sur GitHub Pages
+   - Accessible à : `https://VOTRE_USERNAME.github.io/VOTRE_PROJET/`
+
+### En local
 
 1. **Créer un nouveau document** :
    ```bash

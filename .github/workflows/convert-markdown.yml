@@ -1,0 +1,50 @@
+name: Convert Markdown to HTML
+
+on:
+  push:
+    paths:
+      - '**.md'
+      - 'markdown/**'
+      - 'sujet/**'
+    branches:
+      - main
+  workflow_dispatch:  # Permet de lancer manuellement
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: 📦 Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+          pandoc --version
+      
+      - name: 🔄 Convert Markdown to HTML
+        run: |
+          chmod +x convert.sh
+          ./convert.sh
+      
+      - name: 📊 List generated files
+        run: |
+          echo "Generated HTML files:"
+          find html -type f -name "*.html" || echo "No HTML files found"
+      
+      - name: 💾 Commit and push HTML files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add html/
+          git diff --staged --quiet || git commit -m "🤖 Auto-convert: Markdown → HTML [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: ✅ Conversion completed
+        run: echo "✅ Markdown files successfully converted to HTML"

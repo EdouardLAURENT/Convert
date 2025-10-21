@@ -7,9 +7,8 @@
 # Logs
 *.log
 
-# Fichiers HTML générés
-html/*.html
-html/images/
+# Note: html/ est maintenant versionné pour GitHub Pages
+# Les fichiers HTML sont générés automatiquement par GitHub Actions
 
 # IDE & Editors
 .vscode/
